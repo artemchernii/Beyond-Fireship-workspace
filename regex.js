@@ -69,5 +69,46 @@ console.log(new RegExp('\\^\\$\\.', 'i').test('^$.'));
 // Sets and ranges
 
 // [sdr] - any symbol
+// [0-9A-Za-z] - add numb, letters
+
+// []
 console.log(/[sdf]/.test('gggggg')); // false
 console.log(/[sdf]/.test('ggggggsss')); // true
+console.log(/[0-9A-Za-z\!]/i.test('2222'));
+
+// Quantity
+// {n} - n quantity of thing
+//  {n, } - >=n
+
+console.log(/\d{5}/.test('11111'));
+
+// + {1, }
+// ? {0,1}
+// * {0,}
+
+console.log(/\d+/.test(1111));
+
+// Greed or laziness
+
+console.log('I "love" or "like" '.match(/".+?"/g));
+
+console.log(/(go){3,}/.test('gogogo'));
+
+console.log('i love you'.match(/(lo)ve/));
+
+console.log('artem chernii'.replace(/(\w+) (\w+)/, '$2 $1'));
+
+console.log(/html|js|css/.test('I love html'));
+
+// Practice
+
+const input = '        ';
+
+console.log(/\S/.test(input));
+
+const input2 = '    I love you      ';
+
+console.log(input2.replace(/\s{3,}/g, ' '));
+const checkUrl = 'https://artemchernii.com';
+
+console.log(/http(s)?:\/\/(\w+\.)+\w+$/g.test(checkUrl));
